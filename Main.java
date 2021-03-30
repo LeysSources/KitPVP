@@ -11,6 +11,11 @@ public class Main extends JavaPlugin {
 	String bard = " Bard";
 	String diamond = " Diamond";
 	
+	
+
+	
+	
+	
     @Override
     public void onEnable() {
     	
@@ -33,7 +38,7 @@ public class Main extends JavaPlugin {
     			    	
     			    } if(sender.hasPermission("kit.diamond")) {
     			    	Player player = (Player) sender;
-    			  		
+    			    	sender.sendMessage("Gave Kit diamond");
     		            PlayerInventory inventory = player.getInventory();
     		            
      		            inventory.addItem(new ItemStack(Material.IRON_SWORD));
@@ -48,6 +53,7 @@ public class Main extends JavaPlugin {
     			  
     		    }
     		 
+    		  
     		  if (args[0].equalsIgnoreCase("bard")){
     			  if(!sender.hasPermission("kit.bard")){
  			    	 sender.sendMessage("You do not own kit bard");
@@ -55,6 +61,7 @@ public class Main extends JavaPlugin {
  			    } if (sender.hasPermission("kit.bard")) {
     		    	 Player player = (Player) sender;
  		            PlayerInventory inventory = player.getInventory();
+ 		           sender.sendMessage("Gave Kit Bard");
  		            inventory.addItem(new ItemStack(Material.DIAMOND_SWORD));
 		            inventory.addItem(new ItemStack(Material.LEATHER_HELMET));
 		            inventory.addItem(new ItemStack(Material.LEATHER_BOOTS));
@@ -71,6 +78,7 @@ public class Main extends JavaPlugin {
   			    } if (sender.hasPermission("kit.archer")) {
    		    	 Player player = (Player) sender;
 		            PlayerInventory inventory = player.getInventory();
+		            sender.sendMessage("Gave Kit Archer");
 		            inventory.addItem(new ItemStack(Material.BOW));
 		            inventory.addItem(new ItemStack(Material.ARROW, 64));
 		            inventory.addItem(new ItemStack(Material.CHAINMAIL_HELMET));
@@ -85,18 +93,19 @@ public class Main extends JavaPlugin {
     		  }
     	 
     	  if(command.getName().equalsIgnoreCase("kits")) {
-    		  
-    		  sender.sendMessage("Available kits: ");
+    		  sender.sendMessage("Available kits: " );
     		  if (sender.hasPermission("kit.diamond")) {
     			  sender.sendMessage("Diamond");
-    			  return true;
+    			  
     		  } if (sender.hasPermission("kit.bard")) {
     			  sender.sendMessage("Bard");
-    			  return true;
+    			 
     		  } if (sender.hasPermission("kit.archer")) {
     			  sender.sendMessage("Archer");
-    			  return true;
+    			 
     		  }
+    		  
+    		  
     		  
     		  return true;
     	  } 
