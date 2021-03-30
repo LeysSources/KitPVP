@@ -25,9 +25,17 @@ public class Main extends JavaPlugin {
     	
     	  if(command.getName().equalsIgnoreCase("kit")) {
     		   
+    		  
     		  if (args[0].equalsIgnoreCase("diamond")){
-    			  		Player player = (Player) sender;
+    			    if(!sender.hasPermission("kit.diamond")){
+    			    	 sender.sendMessage("You do not own kit diamond");
+    			    	 return true;
+    			    	
+    			    } if(sender.hasPermission("kit.diamond")) {
+    			    	Player player = (Player) sender;
+    			  		
     		            PlayerInventory inventory = player.getInventory();
+    		            
      		            inventory.addItem(new ItemStack(Material.IRON_SWORD));
     		            inventory.addItem(new ItemStack(Material.DIAMOND_HELMET));
     		            inventory.addItem(new ItemStack(Material.DIAMOND_BOOTS));
@@ -35,9 +43,16 @@ public class Main extends JavaPlugin {
     		            inventory.addItem(new ItemStack(Material.DIAMOND_LEGGINGS));
     		            inventory.addItem(new ItemStack(Material.GOLDEN_APPLE, 4));
     		            return true;
+    			    }
+    			  		
+    			  
     		    }
     		 
     		  if (args[0].equalsIgnoreCase("bard")){
+    			  if(!sender.hasPermission("kit.bard")){
+ 			    	 sender.sendMessage("You do not own kit bard");
+ 			    	 return true;
+ 			    } if (sender.hasPermission("kit.bard")) {
     		    	 Player player = (Player) sender;
  		            PlayerInventory inventory = player.getInventory();
  		            inventory.addItem(new ItemStack(Material.DIAMOND_SWORD));
@@ -47,8 +62,13 @@ public class Main extends JavaPlugin {
 		            inventory.addItem(new ItemStack(Material.LEATHER_LEGGINGS));
 		            inventory.addItem(new ItemStack(Material.GOLDEN_APPLE, 16));
  		            return true;
+ 			    }
     		    }
     		  if (args[0].equalsIgnoreCase("archer")){
+    			  if(!sender.hasPermission("kit.archer")){
+  			    	 sender.sendMessage("You do not own kit archer");
+  			    	 return true;
+  			    } if (sender.hasPermission("kit.archer")) {
    		    	 Player player = (Player) sender;
 		            PlayerInventory inventory = player.getInventory();
 		            inventory.addItem(new ItemStack(Material.BOW));
@@ -59,12 +79,25 @@ public class Main extends JavaPlugin {
 		            inventory.addItem(new ItemStack(Material.CHAINMAIL_LEGGINGS));
 		            inventory.addItem(new ItemStack(Material.WOODEN_SWORD));
 		            return true;
+  			    }
    		    }
 
     		  }
     	 
     	  if(command.getName().equalsIgnoreCase("kits")) {
-    		  sender.sendMessage("Available kits: " + archer + bard + diamond);
+    		  
+    		  sender.sendMessage("Available kits: ");
+    		  if (sender.hasPermission("kit.diamond")) {
+    			  sender.sendMessage("Diamond");
+    			  return true;
+    		  } if (sender.hasPermission("kit.bard")) {
+    			  sender.sendMessage("Bard");
+    			  return true;
+    		  } if (sender.hasPermission("kit.archer")) {
+    			  sender.sendMessage("Archer");
+    			  return true;
+    		  }
+    		  
     		  return true;
     	  } 
     	  
