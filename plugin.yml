@@ -1,0 +1,13 @@
+name: Kits
+main: me.Plugin.Plugin.Main
+version: 1.0
+api-version: 1.13
+commands:
+   kit:
+      description: kit
+      usage: /kit
+      permission: Project.kit
+   kits:
+      description: kit
+      usage: /kits
+      permission: Project.kitsHelp
